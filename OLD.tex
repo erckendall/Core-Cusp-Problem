@@ -1,0 +1,421 @@
+\documentclass[a4paper,11pt]{article}
+\pdfoutput=1 % if your are submitting a pdflatex (i.e. if you have
+             % images in pdf, png or jpg format)
+
+\usepackage{jcappub} % for details on the use of the package, please
+                     % see the JCAP-author-manual
+
+\usepackage[T1]{fontenc} % if needed
+
+
+
+\title{\boldmath The Core-Cusp Problem: An Apples with Apples Comparison}
+
+
+%% %simple case: 2 authors, same institution
+%% \author{A. Uthor}
+%% \author{and A. Nother Author}
+%% \affiliation{Institution,\\Address, Country}
+
+% more complex case: 4 authors, 3 institutions, 2 footnotes
+\author[a,b,1]{F. Irst,\note{Corresponding author.}}
+\author[c]{S. Econd,}
+\author[a,2]{T. Hird\note{Also at Some University.}}
+\author[a,2]{and Fourth}
+
+% The "\note" macro will give a warning: "Ignoring empty anchor..."
+% you can safely ignore it.
+
+\affiliation[a]{One University,\\some-street, Country}
+\affiliation[b]{Another University,\\different-address, Country}
+\affiliation[c]{A School for Advanced Studies,\\some-location, Country}
+
+% e-mail addresses: one for each author, in the same order as the authors
+\emailAdd{first@one.univ}
+\emailAdd{second@asas.edu}
+\emailAdd{third@one.univ}
+\emailAdd{fourth@one.univ}
+
+
+
+
+\abstract{Abstract...}
+
+
+
+\begin{document}
+\maketitle
+\flushbottom
+
+\section{Introduction}\label{sec:intro}
+
+While it is widely agreed that non-baryonic dark matter constitutes the majority of the mass of the observable universe, its precise nature remains one of the most important open questions in theoretical physics today. Many models have been proposed to account for this non-baryonic matter, and among the most successful and widely promulgated is the WIMP model. While the WIMP model of dark matter has enjoyed extraordinary successes in the prediction of the large scale structure of the universe \cite{REF}, it has also suffered setbacks in the form of the so-called `small-scale crisis' \cite{https://arxiv.org/abs/1707.04256}. One such small-scale problem arises due to tension between the predicted central density profiles of dark matter halos from CDM-only simulations and those inferred from observational data. While simulations tend to produce cuspy NFW-type central density profiles, which go like $1/r$ at small radii, observational data instead favours flattened central cores \cite{REF} . This so called `core-cusp' problem has been the focus of much research in recent years \cite{Ref}. While the seriousness of this problem is disputed on the basis that the inclusion of baryonic physics within CDM simulations may alleviate this discrepancy \cite{REF}, it remains a motivating factor for the exploration of alternative models of dark matter for which the core-cusp problem is ameliorated through a non-baryonic mechanism. One such alternative model of dark matter which has been gaining traction is ultra-light dark matter (ULDM), also known variously as scalar-field dark matter, $\Psi$ dark matter, axion dark matter, BEC dark matter and fuzzy dark matter. A recent review is given in \cite{Witten review}. In this model, dark matter halos consist of an inner Bose-Einstein condensate supported by quantum pressure, surrounded by a virialised outer halo of scalar particles\cite{Jens, etc. CHECK Virial??}. ULDM simulations have shown that the density profiles of halo cores in this model match those of the family of solitonic ground state solutions to the Schrodinger-Poisson system \cite{Jens, etc}. Because ULDM naturally includes these solitonic cores without the inclusion of baryonic physics, it has been proposed that the core-cusp problem may be avoided altogether in this model \cite{REF}. Despite this apparent success, it has recently been argued that in some mass regimes, the density profiles predicted by ULDM actually exacerbate the core-cusp problem in comparison to the NFW profiles characteristic of WIMP dark matter \cite{Bullock paper}. Indeed, because the inner regions of ULDM halos are described by solitonic density profiles, they are subject to the mass scaling laws of the ground-state soliton solutions. Crucially, this means that as the mass contained within the central core increases, its radius decreases. For this reason, it is natural to expect that in the most massive cores, a large amount of mass is contained within a small radius, and it is therefore plausible that at small radii, the internal mass of a ULDM halo might exceed that of an `equivalent' NFW halo. This notion of equivalence, however, is somewhat difficult to define. It is the purpose of this paper to explore this in more detail, analysing the core-cusp problem for both ULDM and NFW profiles, and developing a method to determine which model performs best across a wide range of mass regimes. 
+
+
+\section{The Physical Extent of a Dark Matter Halo}
+
+When contrasting the performance of the ULDM model with the WIMP model of DM, it is important to establish the grounds on which halos from either model can be considered to be equivalent. It is natural to want to contrast the density profiles of halos which have approximately the same size and mass, however, defining the size and mass of a given halo is not necessarily a trivial task. To understand this, we start by considering the archetypal density profile for DM halos in the WIMP/collisionless CDM model; the NFW profile:
+\begin{equation}\label{eq:nfw}
+    \rho(r)=\frac{\rho_0}{\frac{r}{R_s}\left(1+\frac{r}{R_s}\right)^2}.
+\end{equation}
+Where the parameters $\rho_0$ and $R_s$ vary from halo to halo. It is clear from this equation that the mass of an NFW halo diverges if integrated to arbitrarily large radius. It is therefore necessary to prescribe a cutoff radius for integration in order to give a finite value for the mass. In other words, there is no natural definition of the size of an NFW halo, and instead we must choose a cutoff, preferably with some physical significance. It seems intuitive to choose the virial radius for this purpose. However, it is not immediately clear from the form of equation \ref{eq:nfw} what this virial radius will be. Typically, the virial radius is approximately determined using the spherical top-hat collapse model \cite{spherical collapse}. This model describes the collapse of a uniform spherical overdensity in a smooth expanding background. The collapse of the overdensity is halted when virial equilibrium is reached, that is: 
+\begin{equation}\label{eq:virial}
+    \langle E_{GP}\rangle = -\langle 2E_K\rangle.
+\end{equation}
+where $E_{GP}$ and $E_{K}$ are the potential and kinetic energies, respectively. The overdensity at virialisation (relative to the critical density), $\Delta_c$, is a model-dependent quantity. Assuming an Einstein-de Sitter cosmology, we have $\Delta_c\approx 178$ \cite{REF}. This theoretical value of the virial overdensity, however, is not universally adopted. CDM simulations, in which the virial radius is determined as the point interior to which material is virialised, and exterior to which material is collapsing inward, suggest a virial overdensity of $\Delta_c\approx 200$ \cite{REF}. Though a common convention, this empirical value is also not universal, with other values of $\mathcal{O}(10^2)$ also used.
+
+The absence of a consensus on an exact value of the CDM virial overdensity need not present a problem when comparing NFW halos with NFW halos, provided the same convention is used consistently. It does, however, lead to a degree of ambiguity when comparing NFW halos with halos from alternative DM models, such as ULDM. If one wishes to compare the density profile of an NFW halo with an `equivalent' ULDM halo, one could in principle choose the virial overdensity convention which best suits the objectives of their argument. Furthermore, one must consider the limits of applicability of virialisation criteria derived for a WIMP CDM model in the context of ULDM. In particular, one must consider the differences between the behaviour of collisionless independent particles and a Bose-Einstein condensate described by a single wavefunction. In the latter case, the wavefunction is governed by the Schr{\"o}dinger equation:
+\begin{equation}\label{eq:schrodinger}
+    i\hbar\dot{\psi} = H\psi = \frac{-\hbar^2}{2m}\nabla^2\psi+m\Phi(\bold{r},t)\psi,
+\end{equation}
+where $H$ is the Hamiltonian operator, and $\Phi(\bold{r},t)$ is the gravitational potential. Following \cite{Witten review}, one can then write down second time derivative of the moment of inertia for the system:
+\begin{align}\label{eq:inertia}
+    \ddot{I} &= \frac{1}{4}\int d\bold{r} \ \psi^*\big[\big[r^2,\nabla^2\big], H\big]\psi\nonumber\\
+    &= -m \int d\bold{r}\vert\psi\vert^2\bold{r}\cdot\bold{\nabla}\Phi+\frac{\hbar^2}{m}\int d\bold{r}\vert\bold{\nabla\psi}\vert^2.
+\end{align}
+At this point we define $\psi = \sqrt{\rho/m}e^{i\theta}$, so that we may use a fluid interpretation to define a velocity $\bold{v}=\hbar\bold{\nabla}\theta/m$. Using these definitions, Equation \ref{eq:inertia} becomes
+\begin{align}
+    \ddot{I}&=-\int d\bold{r}\rho \ \bold{r}\cdot\bold{\nabla}\Phi+\int d\bold{r}\rho v^2+\frac{\hbar^2}{m^2}\int d\bold{r}\vert\bold{\nabla}\sqrt{\rho}\vert^2\nonumber\\
+    &= E_{GP}+2E_{K}+2E_{Q},
+\end{align}
+where $E_{GP}$ is the gravitational potential energy, $E_Q$ is the `quantum' energy, and in the classical limit $E_K$ is analogous to the kinetic energy. In a steady state, $\ddot{I}=0$ and we arrive at the quantum virial theorem:
+\begin{equation}\label{eq:quantum_virial}
+    E_{GP} = -2E_{K}-2E_{Q}.
+\end{equation}
+Contrasting this with Equation \ref{eq:virial}, we see that the presence of the quantum energy term means that the quantum virial theorem, applicable to the ULDM model, is not equivalent to the classical virial theorem of collisionless cold dark matter. Hence, while the virial overdensity defined as above may be a physically relevant quantity in the context of collisionless CDM, this is not true in general for alternative models, such as ULDM. This motivates further consideration as to the best means by which to define the physical extent of a ULDM halo. 
+
+Because ULDM halos have a well-defined central core with finite maximum density, one may be tempted to define the physical extent of the halo by imposing a cutoff where the density has dropped to some fraction of the central density. Indeed, it is this methodology which has become the customary way of defining the `core' of a ULDM halo \cite{e.g. bullock and Jens where state half density}, a matter to which we will return in later sections. However, such a methodology cannot be applied to NFW profiles, in which the central density is divergent. Thus, as we are interested in comparing NFW profiles to ULDM profiles, this method for determining the spatial extent of a halo is not ideal. 
+
+We therefore seek an alternative method of defining the spatial extent of a halo which may be sensibly applied to both ULDM and NFW profiles. One way to do this is to consider the size of the overdense region itself. That is to say, we define the edge of the halo as the radius at which the overdensity, $\delta = \rho/\bar{\rho}$, is equal to unity. This makes intuitive sense, as we can consider halos to be peaks in density set against a global background. Applying either of the two above methods instead, we may end up artificially truncating the halo at a radius where the density is in fact much higher or lower than the background, and this is not physically well-motivated. 
+
+For both ULDM and NFW halo profiles, the inner region is qualitatively different to the outer region. In the NFW case, the inner region goes like $1/r$, while the outer region goes like $1/r^3$. In the case of ULDM halos, the inner region is described by a solitonic profile, while the outer region possesses an NFW-like $1/r^3$ behaviour. If we define the edge of the halo by the radius at which $\delta = 1$, we necessarily truncate the outer region of the profile. This will have particular significance for low-mass halos, wherein a large proportion of the outer region of the profile will not be overdense, and will therefore not be considered to be part of the halo. Of course, this will have important implications when determining core-halo scaling relations, and one might reasonably expect a constraint on the physically realisable core:halo ratio of a ULDM halo, to some extent analogous to the constraint on the concentration paramater of physically realisable NFW halos \cite{NFW concentration}. We will return to this issue in Section \ref{sec:core-halo}.
+
+
+tasks:
+- do sims for the same total mass, but gaussian distribution vs. symmetric distribution, and correlated vs uncorrelated phases etc.
+- come up with some way of determining transition radius, range? maybe in some way dependent on initial symmetries/initial configuration of progenitors/energy dependent.
+- talk about importance of gravitational cooling
+- core-halo mass relation like concentration parameter
+- how long does it take for these things to relax?
+- asphericity
+- include graphs of virialisation - check that this doesn't assume zero at boundary in calc i.e. double check integral
+
+
+
+i.e. define a radius, then see what ULDM halos you could put in it, and for each, assess what proportion of the radius or mass is in the tail. Should probably disallow ones which are basically just cores. core:halo ratio much like concentration parameter for CDM.
+
+concentration parameter ends up like core-halo mass relation i.e. can't have only core, so ends up putting a limit on the lower bound of mass for uldm halos. 
+
+maybe want to quantify radius of halo region to radius of core region. 
+
+We also need an analytic form for the equation of a ULDM halo, so we know what is allowed and what is not. \cite{bullock} attempted this, but used a value for the transition that was possibly too rigid - may be mass dependent furthermore, I can't see the 1/r part of the nfw, which other people have been able to see. 
+
+core halo mass relation uses the definition of virial radius which I've just said is not applicable, and in any case, this would mean that sometimes the `whole' halo wouldn't even be encompassed within the virial radius, so the core-halo mass relation would break down. 
+
+Need to consider gravitational cooling/relaxation time. may attain qualitative shape but not be finished cooling. 
+
+Should be defined out to overdensity = 1. But then the argument would be that this doesn't correspond to the virial radius. but why should it? no guarantee that there aren't stars outside virial radius. Surely anyway we should include the stuff that's falling in as part of the halo, since it is gravitationally bound. 
+
+An overdense region may not collapse if the expansion of space is large enough to counteract the collapse
+
+
+If density drops to avg background, then if profile continues smoothly down, immediate area outside will be an underdense region. unless it there did stop
+
+would be the same problem in terms of cutting off halos with small mass, but perhaps that's the right thing to do because in reality it is just the overdensity that we're concerned with. 
+
+Defining pout to where avg dens is 200 times crit doesn't mean that the area outside this won't still be overdense.
+
+Note that NFW only really appropriate for isolated halos. 
+
+problem with defining out to fraction of central density is that it doesn't take into account the environment - if there is a non-zero background density then we might be defining to over or under the water surface. 
+
+or define out to the edge where it is gravitationally bound. Not good cos totally dependent on environment, if another halo nearby, could muck things up.
+
+
+Maybe use the tracers at the farthest radius, at which point the halos had better match, then see which also matches at interior
+
+cannot assume that the fathest stars are at the virial radius, or within, or outside.
+
+
+options: average internal density equal to something, but could have different uldm halos where this is true i.e. mass at a certain radius is the same but the profiles are different further out? also, this may not encompass enough of the halo in terms of density dropping to some frac of central. i.e. how much of the halo is actually encompassed by this - may not encompass the entire overdense region. 
+
+density drops to background: not necessarily equal to the local background still seems to be the lesser of evils - locally could be zero background. 
+
+
+Can you even get halos with only core regions forming? i.e. if need halo with certain mass, just like concentration parameter in CDM maybe there's a proportion of core to proportion of halo parameter in ULDM. So a halo of a certain mass can't just consist of part of the solitonic region of some highly peaked ULDM halo truncated at small radius. would be interesting to test this in cosmological simulations. 
+
+
+
+
+
+\section{Virialisation of ULDM halos}
+
+things to consider:
+quantum virial theorem
+time - halo may look like the overall profile but this may yet change
+asphericity when some symmetry in initial configuration
+
+
+one could just look at the point where the density drops to some value, and insist that this happens at the same radius, and then fix parameters so that total mass is the same. Then want to see how dependent this is on changing the density fraction. 
+
+Unlike NFW, ULDM doesn't have a nice analytic form of the profile, because transition seems to be mass-dependent. 
+
+
+
+Argument that at large radius uldm behaves like CDM so at large radii profiles should be the same. 
+
+
+
+Could have same mass but way different radii
+
+look at plausible concentration parameters
+
+
+
+This highlights the crux of the issue 
+
+
+one could choose density drops to 0.001 central if there were a central density, could choose place where density drops to 
+
+
+
+
+
+huge mass loss from some sims doesn't mean that that mass has necessarily escaped to infinity, but is certainly in the wider halo. Looks like final halo is smaller than the mass of the progenitors. Need to cite gravitational cooling people.
+
+
+http://background.uchicago.edu/~whu/Courses/Ast321_11/ast321_7.pdf
+
+The spherical top-hat ansatz describes the formation of
+a collapsed object by solving for the evolution of a sphere
+of uniform overdensity
+δ
+in a smooth background of den-
+sity  ̄
+ρ
+
+
+the virial radius of an NFW profile is not derived from the parameters of the profile itself, rather, 
+
+
+
+
+if we have different virial conditions, does it make sense at all to compare the quantum virial radius with the `classical' virial radius of cdm?
+
+
+Good ref: https://arxiv.org/pdf/astro-ph/0011495.pdf
+
+this virial radius doesn't fall out naturally from the NFW profile itself. Theory suggests that this will happen at 200 times the average background density
+
+need quantum virial theorem for ULDM. not a simple case of kinetic and potential energy. 
+
+
+establish the principles on which halos from each model can be considered to be equivalent. 
+
+to contrast the two models determine which halos can be said to be equivalent.
+
+
+virial radius increases over time
+
+It is known that the mass of an NFW halo diverges if integrated to arbitrarily high radius. It is therefore necessary to prescribe a cut-off radius for integration in order to give a finite result. It is not immediately clear what 
+
+where the density equals the average background? Not really any good because local background much less than global background because halos occur in isolated areas, not a sea of background.
+
+if detailed comparisons of NFW vs. ULDM halos are to be made. 
+
+It is this notion of equivalence, however, that could benefit from further investigation.
+
+However, it is this notion of an equivalent halo that stands to be better defined.
+
+In this work, we explore the core-cusp problem of both ULDM and CDM models further, and develop a method by which ULDM halos can be contrasted with `equivalent' NFW halos. 
+
+
+maybe explain this further or state that this is just an argument for plausibility
+
+Totally plausible for the reason of the scaling laws of cores, but in order to more precisely define the regime in which ULDM is worse, 
+
+However, we need perhaps a better model to compare apples with apples. 
+
+Difficulty of defining an equivalence between the two models. 
+
+1. NFW profile itself mass diverges, need to define some cutoff radius
+2. Typically, the cutoff is 200 times the critical (approx=background) density of the universe. This seemed to come out of simulation - is it really virialised? Meaningless number when just looking at profiles in the absence of cosmological simulations.
+Is this a meaningful number in ULDM?
+3. Theory exists, see paper about virial mass \cite{https://arxiv.org/pdf/1005.0411.pdf}, but maybe this is based on CDM not applicable to ULDM
+Bryan and Norman convention
+4. Difficulty modelling ULDM transition - does the law that Bullock etc used apply across broader mass range?
+5. Gravitational cooling and relaxation times. Has the mass asymptoted
+6. Asphericity
+are these things even virialised.
+
+Multiple conventions exist for defining the mass of a CDM/NFW halo.
+
+
+
+The cause of this can be unde
+
+arises from
+
+
+
+higher mass smaller radius - therefore more mass in the central region, may worsen 
+
+
+
+encountered involves the density profiles of the centre of dark matter halos. While CDM-only simulations tend to predict cuspy
+
+While the degree to which it is disputed this remains a problem, when baryonic physics is incorporated into the model, it is still worth exploring other models which do not possess the same problems by construction, and contrasting these models to look for possible observable signatures.  
+
+
+
+The details of the particulate nature of dark matter remains one of the most important open questions in theoretical physics. While the WIMP model of dark matter has enjoyed extraordinary success in the prediction of large scale structure \cite{REF}
+
+
+Here follow some examples of common features that you may wanto to use
+or build upon.
+
+For internal references use label-refs: see section~\ref{sec:intro}.
+Bibliographic citations can be done with cite: refs.~\cite{a,b,c}.
+When possible, align equations on the equal sign. The package
+\texttt{amsmath} is already loaded. See \eqref{eq:x}.
+\begin{equation}
+\label{eq:x}
+\begin{split}
+x &= 1 \,,
+\qquad
+y = 2 \,,
+\\
+z &= 3 \,.
+\end{split}
+\end{equation}
+Also, watch out for the punctuation at the end of the equations.
+
+
+If you want some equations without the tag (number), please use the available
+starred-environments. For example:
+\begin{equation*}
+x = 1
+\end{equation*}
+
+The amsmath package has many features. For example, you can use use
+\texttt{subequations} environment:
+\begin{subequations}\label{eq:y}
+\begin{align}
+\label{eq:y:1}
+a & = 1
+\\
+\label{eq:y:2}
+b & = 2
+\end{align}
+and it will continue to operate across the text also.
+\begin{equation}
+\label{eq:y:3}
+c = 3
+\end{equation}
+\end{subequations}
+The references will work as you'd expect: \eqref{eq:y:1},
+\eqref{eq:y:2} and \eqref{eq:y:3} are all part of \eqref{eq:y}.
+
+A similar solution is available for figures via the \texttt{subfigure}
+package (not loaded by default and not shown here).
+All figures and tables should be referenced in the text and should be
+placed at the top of the page where they are first cited or in
+subsequent pages. Positioning them in the source file
+after the paragraph where you first reference them usually yield good
+results. See figure~\ref{fig:i} and table~\ref{tab:i}.
+
+\begin{figure}[tbp]
+\centering 
+\includegraphics[width=.45\textwidth,trim=0 380 0 200,clip]{example-image}
+\hfill
+\includegraphics[width=.45\textwidth,angle=180]{example-image}
+\caption{\label{fig:i} Always give a caption.}
+\end{figure}
+
+\begin{table}[tbp]
+\centering
+\begin{tabular}{|lr|c|}
+\hline
+x&y&x and y\\
+\hline
+a & b & a and b\\
+1 & 2 & 1 and 2\\
+$\alpha$ & $\beta$ & $\alpha$ and $\beta$\\
+\hline
+\end{tabular}
+\caption{\label{tab:i} We prefer to have borders around the tables.}
+\end{table}
+
+We discourage the use of inline figures (wrapfigure), as they may be
+difficult to position if the page layout changes.
+
+We suggest not to abbreviate: ``section'', ``appendix'', ``figure''
+and ``table'', but ``eq.'' and ``ref.'' are welcome. Also, please do
+not use \texttt{\textbackslash emph} or \texttt{\textbackslash it} for
+latin abbreviaitons: i.e., et al., e.g., vs., etc.
+
+
+
+\section{Sections}
+\subsection{And subsequent}
+\subsubsection{Sub-sections}
+\paragraph{Up to paragraphs.} We find that having more levels usually
+reduces the clarity of the article. Also, we strongly discourage the
+use of non-numbered sections (e.g.~\texttt{\textbackslash
+  subsubsection*}).  Please also see the use of
+``\texttt{\textbackslash texorpdfstring\{\}\{\}}'' to avoid warnings
+from the hyperref package when you have math in the section titles
+
+
+
+\appendix
+\section{Some title}
+Please always give a title also for appendices.
+
+
+
+
+
+\acknowledgments
+
+This is the most common positions for acknowledgments. A macro is
+available to maintain the same layout and spelling of the heading.
+
+\paragraph{Note added.} This is also a good position for notes added
+after the paper has been written.
+
+
+
+
+
+% The bibliography will probably be heavily edited during typesetting.
+% We'll parse it and, using the arxiv number or the journal data, will
+% query inspire, trying to verify the data (this will probalby spot
+% eventual typos) and retrive the document DOI and eventual errata.
+% We however suggest to always provide author, title and journal data:
+% in short all the informations that clearly identify a document.
+
+\begin{thebibliography}{99}
+
+\bibitem{a}
+Author, \emph{Title}, \emph{J. Abbrev.} {\bf vol} (year) pg.
+
+\bibitem{b}
+Author, \emph{Title},
+arxiv:1234.5678.
+
+\bibitem{c}
+Author, \emph{Title},
+Publisher (year).
+
+
+% Please avoid comments such as "For a review'', "For some examples",
+% "and references therein" or move them in the text. In general,
+% please leave only references in the bibliography and move all
+% accessory text in footnotes.
+
+% Also, please have only one work for each \bibitem.
+
+
+\end{thebibliography}
+\end{document}

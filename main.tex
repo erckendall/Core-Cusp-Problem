@@ -11,7 +11,7 @@
 
 \usepackage{color}
 
-\newcommand{\hs}[1]{{{\bf \color{red} EK: #1}}}
+\newcommand{\ek}[1]{{{\bf \color{red} EK: #1}}}
 \newcommand{\re}[1]{{{\bf \color{green} RE: #1}}}
 
 \title{\boldmath The Core-Cusp Problem Revisited: ULDM vs. CDM}
@@ -54,19 +54,20 @@ While the core-cusp problem may be ameliorated by adding baryonic matter to the 
 
 Despite this apparent success, it has  been argued that in some mass regimes the density profiles predicted by ULDM actually exacerbate the core-cusp problem in comparison to the NFW profiles characteristic of WIMP CDM \cite{Robles:2018fur}. Indeed, as the inner regions of ULDM halos are described by solitonic density profiles, they are subject to the mass scaling laws of the ground-state soliton solutions. In particular these imply that as the mass contained within the central core increases, its radius decreases. For this reason, it is natural to expect that in the most massive cores, a large amount of mass is contained within a small radius. Hence, it is plausible that at small radii the internal mass of a heavy ULDM halo might exceed that of an `equivalent' NFW halo. The authors of \cite{Robles:2018fur} concluded that in comparison to observational data, the NFW profiles of CDM outperform ULDM profiles for dwarf galaxies with masses ($> M_h \sim 10^{11} M_{\odot}$). 
 
-The purpose of this paper is to examine the impact of variation in the core-halo mass scaling relation on ULDM halos. Accounting for the apparent scatter around the theoretical prediction of the core-halo mass ratio as implied in \cite{Schive:2014hza}, we find that the core-cusp problem is not necessarily exacerbated for ULDM relative to CDM at scales relevant to dwarf galaxies. Nevertheless,  neither ULDM halos (for ULDM particle mass $0.8-2.5\times 10^{-22} \operatorname{eV}$)
-nor NFW halos provide a particularly good fit to astrophysical data in the SPARC database \cite{Lelli:2016zqa}. However, the SPARC database is not exhaustive, with data from some dwarf galaxies being limited to fewer than 5 data points and many of the profiles have significant uncertainties making it is difficult to draw strong conclusions. Furthermore, looking at numerical simulations we see that while the spherically-averaged density profiles of simulated ULDM halos follow a predictable format, the outer regions are highly turbulent, so that any individual point may vary widely from the global average.These uncertainties notwithstanding, we demonstrate a ULDM particle mass of $10^{-23}\operatorname{eV}$ can give a reasonable fit to a set of profiles from SPARC database can be obtained, with good agreement at small radii and this very small particle mass is in tension with some recent ULDM constraints.  \re{maybe a sentence or two about synthetic halos}
+The purpose of this paper is to examine the impact of statistical variation in the core-halo mass scaling relation on the core-cusp discrepancy in ULDM halos. To do this, we utilise the method for constructing a semi-analytic ULDM density profile as developed in \cite{Robles:2018fur}. This method combines a solitonic ULDM core with an NFW-like outer halo to form a `generic' ULDM profile. We test the validity of such synthetic profiles by comparison to numerical density profiles obtained through the PyUltraLight simulation tool \cite{Edwards:2018ccc}.
 
-\re{summary of sections}
+Accounting for the apparent scatter around the theoretical prediction of the core-halo mass ratio as implied in \cite{Schive:2014hza}, we find that the core-cusp problem is not necessarily exacerbated for ULDM relative to CDM at scales relevant to dwarf galaxies. Nevertheless,  neither ULDM halos (for ULDM particle mass $0.8-2.5\times 10^{-22} \operatorname{eV}$)
+nor NFW halos provide a particularly good fit to astrophysical data in the SPARC database \cite{Lelli:2016zqa}. However, we note that the SPARC database is not exhaustive, with data from some dwarf galaxies being limited to fewer than 5 data points and many of the profiles having significant uncertainties. These considerations make drawing strong conclusions difficult. Furthermore, looking at numerical simulations we see that while the spherically-averaged density profiles of simulated ULDM halos follow a predictable format, the outer regions are highly turbulent, so that any individual point may vary widely from the global average. These uncertainties notwithstanding, we demonstrate a ULDM particle mass of $10^{-23}\operatorname{eV}$ can yield a range of plausible ULDM halo profiles which give a reasonable fit to a subset of profiles from the SPARC database, with good agreement at small radii. This very small particle mass, however, is in tension with some recent ULDM constraints. 
 
-
-
-
+The structure of the paper is as follows. In Section \ref{sec:models}, we review the construction of semi-analytic density profiles for both the ULDM and CDM models. In Section \ref{sec:sim_comparison} we then verify the validity of the semi-analytic ULDM profile  through comparison to simulation data. In Section \ref{sec:ULDM_v_CDM} we compare the semi-analytic density profiles for ULDM and CDM halos in the dwarf galaxy mass range $10^{11} - 10^{12}\operatorname{M}_{\odot}$, taking into account statistical variation in both the NFW concentration parameter and the ULDM core-halo mass relation. Finally, in Section \ref{sec:velocity} we compare the radial velocity profiles inferred from these density profiles with astrophysical data from the SPARC database \cite{Lelli:2016zqa}. We conclude in Section \ref{sec:conclusion}.
 
 
 
 
-\section{Semi-analytic models of dark matter halos}
+
+
+
+\section{Semi-analytic models of dark matter halos}\label{sec:models}
 
 \subsection{The NFW profile of CDM}
 
@@ -76,9 +77,11 @@ We begin by looking at the semi-analytic parametrisations of ULDM and CDM halo m
     \rho_{NFW}(r)=\frac{\rho_0}{\frac{r}{R_s}\left(1+\frac{r}{R_s}\right)^2}.
 \end{equation}
 %
-where the parameters $\rho_0$ and $R_s$ \re{define physically} vary from halo to halo. By assumption, the profile is radially symmetric and it is well known that the corresponding volume integral for the mass would diverge as $r\rightarrow \infty$. In practice, however, the halo will have a finite size and this is typically set by the virial radius, which is approximately determined via the spherical top-hat collapse model \cite{White:2000jv, Suto:2015jdt, Herrera:2017epn} describing the collapse of a uniform spherical overdensity in a smooth expanding background. Collapse halts when virial equilibrium is reached, and the resulting virial radius is parametrised by $\Delta_c \rho_c(t)$ where $\rho_c(t)$ is the critical density of the universe at time $t$. It is found that the numerical factor $\Delta_c$ is of order $10^2$ and while different conventions exist we will take the common value of $\Delta_c = 200$ \cite{Richings:2018} in what follows. 
+where the parameters $\rho_0$ and $R_s$ vary from halo to halo. $\rho_0$ can be interpreted as a characteristic density, while $R_s$, the scale radius, determines the radius at which the scaling behaviour of the profile qualitatively transitions from the `small r' to the `large r' limit; $1/r$, and $1/r^3$, respectively.
 
-If we take the virial radius to define the  physical extent of the halo, equation \ref{eq:nfw} completely specifies the density profile for given  $\rho_0$ and $R_s$. Conversely, for any given virial mass, there is a range of  NFW density profiles but specific choices of $\rho_0$ and $R_s$ emerge from the mass-concentration-redshift relation evident in the results of N-body simulations \cite{Ludlow:2013vxa}. \re{or observation??}
+By assumption, the profile is radially symmetric and it is well known that the corresponding volume integral for the mass would diverge as $r\rightarrow \infty$ if the theoretical profile were continued to arbitrary radius. In practice, however, the halo will have a finite size and this is typically set by the virial radius, which is approximately determined via the spherical top-hat collapse model \cite{White:2000jv, Suto:2015jdt, Herrera:2017epn} describing the collapse of a uniform spherical overdensity in a smooth expanding background. Collapse halts when virial equilibrium is reached, and the resulting virial radius is parametrised by $\Delta_c \rho_c(t)$ where $\rho_c(t)$ is the critical density of the universe at time $t$. It is found that the numerical factor $\Delta_c$ is of order $10^2$ and while different conventions exist we will take the common value of $\Delta_c = 200$ \cite{Richings:2018} in what follows. 
+
+If we take the virial radius to define the  physical extent of the halo, equation \ref{eq:nfw} completely specifies the density profile for given  $\rho_0$ and $R_s$. For any given virial mass, there is a range of corresponding NFW density profiles, with constraints on $\rho_0$ and $R_s$ emerging from the mass-concentration-redshift relation evident in the results of N-body simulations and observations \cite{Ludlow:2013vxa, Ragagnin:2018enf}. 
 
 \subsection{The piecewise ULDM halo profile}
 
@@ -133,7 +136,7 @@ and
 \end{equation}
 where $r_c$ is the radius at which the density drops to half its central value, and $m_{22}$ is defined as $m_{22} \equiv m / 10^{-22} \operatorname{eV}$. Here $m$ is the ULDM particle mass. 
 
-While this precise scaling relation gives us a baseline prediction for the central density of a ULDM halo of a given virial mass, for a given halo mass we expect that there will be a range of acceptable central densities, in analogy with the scatter in the concentration parameter of NFW profiles \cite{Maccio:2008pcd}  Indeed, inspection of the results of \cite{Schive:2014hza} indicates a scatter of up to $\pm 50\%$ from the  predicted value of the core mass, $M_c$, the mass contained within  within $r_c$. The small sample size and limited halo mass range ($ M_{vir} \approx 10^8-10^{11} \operatorname{M}_{\odot}$)  of the data in Ref.~\cite{Schive:2014hza} means it is probably not meaningful to use it to specify a detailed distribution but we will assume a scatter of $\pm 50\%$, with the caveat that data from future simulations could lead to improved statistics.
+While this precise scaling relation gives us a baseline prediction for the central density of a ULDM halo of a given virial mass, for a given halo mass we expect that there will be a range of acceptable central densities, in analogy with the scatter in the concentration parameter of NFW profiles \cite{Maccio:2008pcd}. Indeed, inspection of the results of \cite{Schive:2014hza} indicates a scatter of up to $\pm 50\%$ from the  predicted value of the core mass, $M_c$, the mass contained within  within $r_c$. The small sample size and limited halo mass range ($ M_{vir} \approx 10^8-10^{11} \operatorname{M}_{\odot}$)  of the data in Ref.~\cite{Schive:2014hza} means it is probably not meaningful to use it to specify a detailed distribution but we will assume a scatter of $\pm 50\%$, with the caveat that data from future simulations could lead to improved statistics.
 
 Moreover, as acknowledged in \cite{Robles:2018fur}, we expect to see variation in both the central soliton density and the radius at which the solitonic profile of the ULDM halo transitions into an NFW profile. This variation is captured by the parameter $\alpha$, such that the transition radius, $r_{\alpha}$, is given by $r_{\alpha} = \alpha r_c$, where $3 \leq \alpha \leq 4$.  With the allowances for statistical variation in both the central soliton density and the transition radius taken into account, we can now create a range of acceptable ULDM halo profiles for a given halo virial mass. To do this, we use the virial mass to predict $\rho_c$. Combined with an assumption for $\alpha$, the solitonic piece of the ULDM profile is then completely specified, and its mass can be calculated. From here, we can calculate the mass in the the NFW tail of the ULDM profile andm by matching the densities of the NFW tail and the inner soliton at the transition radius, as the values of the $R_s$ and $rho_0$ parameters of the ULDM profile NFW tail are fully constrained.  
 
@@ -146,7 +149,16 @@ Moreover, as acknowledged in \cite{Robles:2018fur}, we expect to see variation i
 
 }
 
-\section{ULDM profiles from simulations}
+\ek{Responses to the above 
+\begin{itemize} 
+\item Yes, Schive et. al. calculate it, see eqn. 6 in \cite{Schive:2014hza} - this is the paper I cite above. 
+\item I thought that eqn. \ref{eq:piecewise} was sufficient here. As you say, since we are using a numerical profile for the soliton we can't write this down, and the formula for $\rho_{NFW}$ is given in the previous section, so needn't be repeated? 
+\item In principle, yes, but the resulting profile would violate the core-halo scaling relation and would therefore not be astrophysically reasonable. Should I specify this in the text? 
+\end{itemize}
+
+}
+
+\section{ULDM profiles from simulations}\label{sec:sim_comparison}
 
 
 \begin{figure}
@@ -160,30 +172,41 @@ Right: Density profile along single arbitrary direction. All quantities are repr
 
 \begin{figure}
 \centering
-\includegraphics[scale = 0.7, trim={0cm 0cm 1cm 0.35cm}]{pics/combined.eps} 
-\caption{Validity check for the piecewise ULDM profile. The simulated merger product of 8 solitons with masses $\sim 50,000$ code units is shown from times T1 to T4. The black dotted line represents the artifical profile constructed according to the method of \cite{Robles:2018fur}. Quantities are represented in dimensionless code units}\label{fig:validity}
+\includegraphics[scale = 0.7, trim={0cm 0cm 0cm 0cm}]{pics/slice.eps}
+\caption{Illustration of the scale of the fluctuations present in the turbulent outer halo for the merger product of Figure \ref{fig:pul}. The contour plot represents the (log scaled) local density across a slice through the centre of the final halo. In this plot, distance is not log-scaled, and we see that the spatial size of the fluctuations is of the same order of magnitude as the solitonic core itself.}\label{fig:contour}
+\end{figure}
+
+\begin{figure}
+% \centering
+\begin{tabular}{cc}
+{\includegraphics[scale = 0.5, trim={1cm 0cm 1cm 0.35cm}]{pics/combined_small.eps}} &
+{\includegraphics[scale = 0.5, trim={1cm 0cm 1cm 0.35cm}]{pics/combined.eps}}
+\end{tabular}
+\caption{Left: Merger product of 4 solitons, each with mass 2,000 code units, arranged in a cross configuration. Right: Merger product of 8 solitons of masses $\sim$50,000 code units randomly distributed about the interior of the simulation region. Profiles are plotted for even time intervals from 85\% of total simulation duration, T0 to T4. At these times the halo is relaxed, with changes arising due to turbulence in the outer halo. Profiles are compared to model profiles constructed using the piecewise approach. Good agreement is shown in both cases. Quantities are expressed in dimensionless code units, and vertical dotted lines represent $3r_c$ and $4r_c$. \ek{Added in additional plot for alternative initial conditions}}\label{fig:validity}
 \end{figure}
 
 
-
 \re{think this works better coming first, since it relates directly to the ULDM profile. I think that makes for better flow -- since it will go from here to the comparison between the profiles, and from there to comparisons with data}
+\ek{Not sure if you mean that this should be  moved to before the previous section, or kept where it is currently?}
 
 Halo formation in the ULDM model has been investigated by a number of studies \cite{Schwabe:2016rze, Mocz:2017wlg, Lin:2018whl} which suggest that a generic ULDM halo consists of a solitonic core surrounded by a turbulent outer halo whose density profile falls off like $1/r^3$, as described in the previous Section. Full astrophysical structure formation simulations in ULDM are particularly challenging, given the need to effectively resolve a wide range of scales in an expanding background. However, we can produce ``synthetic'' halos by setting initial conditions in a Schr{\"o}dinger-Poisson  solver corresponding to ${\cal{O}}(10)$ randomly located solitons, allowing them to merge and running the simulation long enough to arrive at a stable ``final'' state. 
 
-We  implemented this approach in {\sc PyUltraLight}  \cite{Edwards:2018ccc}, and the results of one such simulation are shown in Figure \ref{fig:pul}. This profile was obtained through the merger of eight randomly positioned solitons whose masses were selected from a Gaussian distribution centred at 5000 code units. \re{what width?} The simulation was run at $512^3$ for a duration of 0.05 code units, while the volume of the simulation region, also in code units, was $0.2^3$. \re{maybe explain -- this is the size of the box; what region of the simulation volume were the solitions inside} For ULDM  mass of $10^{-22}\operatorname{eV}$, this choice corresponds to individual progenitor masses of $\sim 1.1*10^{10}\operatorname{M}_{\odot}$, duration $\sim 3.8 \operatorname{Gyr}$, and side length $\sim 7.7 \operatorname{kpc}$. 
+We  implemented this approach in {\sc PyUltraLight}  \cite{Edwards:2018ccc}, and the results of one such simulation are shown in Figure \ref{fig:pul}. This profile was obtained through the merger of eight randomly positioned solitons whose masses were selected from within the $\pm 1\sigma$ range of a Gaussian distribution centred at 5000 code units, where $\sigma = 1000$ code units.
+The simulation was run at $512^3$ for a duration of 0.05 code units, while the volume of the simulation region, also in code units, was $0.2^3$. The initial positions of the solitons were within the innermost eighth of the total simulation region, ensuring inward gravitational collapse. For ULDM  mass of $10^{-22}\operatorname{eV}$, these choices of simulation parameters correspond to individual progenitor masses of $\sim 1.1*10^{10}\operatorname{M}_{\odot}$, duration $\sim 3.8 \operatorname{Gyr}$, and side length $\sim 7.7 \operatorname{kpc}$. 
 
-The density profile of the resulting merger product is found to be qualitatively similar for larger/smaller masses \re{ particle masses? initial solition mass?}, though the size of the solitonic core is subject to the inverse mass-radius scaling relation of the ground-state solution to the Schr{\"o}dinger-Poisson equations. After the solitons collide, some material is ejected from the central region; {\sc PyUltraLight} was modified to include a sponge at the simulation boundary so this material does not  reenter the from the opposite side as a result of the periodic boundary conditions, so mass is not globally conserved. The simulation was run for long enough so that that the mass-loss rate asymptotically approaches zero well before the end of the simulation, giving confidence that the resulting halo represents a relaxed merger product. 
+The density profile of the resulting merger product is found to be qualitatively similar for larger/smaller progenitor masses, though the size of the solitonic core is subject to the inverse mass-radius scaling relation of the ground-state solution to the Schr{\"o}dinger-Poisson equations. After the solitons collide, some material is ejected from the central region; {\sc PyUltraLight} was modified to include a sponge at the simulation boundary so this material does not  reenter the from the opposite side as a result of the periodic boundary conditions, so mass is not globally conserved. The simulation was run for long enough so that that the mass-loss rate asymptotically approaches zero well before the end of the simulation, giving confidence that the resulting halo represents a relaxed merger product. 
 
-The left panel of Figure \ref{fig:pul} demonstrates the spherically-averaged density profile of the relaxed merger product over time. The inner region is solitonic, transitioning to a $1/r^3$ type profile at a distance of between 3 and 4 times the core radius. We see that while there is some weak time-dependence in the overall profile, it is largely stable. However, the right side panel demonstrates significant local fluctuations in the density of the outer halo along any individual arbitrary direction as function of time.  \re{do we know how these compare to NFW halos in simulations? And how much they depend on our initial state -- not the detailed form, but the size of the fluctuations?  And also what the local changes in the effective gravitational force would be a result of them? Has this been looked at elsewhere?? Not suggesting we did too far here and they are potentally a function of our ``synthetic'' approach, but potentially kind of interesting?}
+The left panel of Figure \ref{fig:pul} demonstrates the spherically-averaged density profile of the relaxed merger product over time. The inner region is solitonic, transitioning to a $1/r^3$ type profile at a distance of between 3 and 4 times the core radius. We see that while there is some weak time-dependence in the overall profile, it is largely stable. However, the right side panel demonstrates significant local fluctuations in the density of the outer halo along any individual arbitrary direction as function of time.  \re{do we know how these compare to NFW halos in simulations? And how much they depend on our initial state -- not the detailed form, but the size of the fluctuations?  And also what the local changes in the effective gravitational force would be a result of them? Has this been looked at elsewhere?? Not suggesting we did too far here and they are potentally a function of our ``synthetic'' approach, but potentially kind of interesting?}\ek{It's difficult to find any literature directly addressing "turbulence" in NFW halos. I'm not sure what the best search  term might be. "Asphericity" turns up content about overall ellipticity, "substructure" turns up material relating to smaller NFW halos embedded in larger halos, and "inhomogeneity" turns up collapse models from inhomogeneities in background density. None of these are what we're looking for here. I think that the closest we could do would be to compare our turbulence with CDM substructure in some way. Perhaps this could be added to the outlook? Also, the fluctuations don't seem to be dependent on initial state, though I've read somewhere (will have to dig up the ref) that they tend to be of the order of the size of the core (in terms of spatial extent). Is it worth expanding on this further here?}
 
-\re{this material below  is redundant with stuff above?} 
+\re{this material below  is redundant with stuff above?}\ek{Rewritten to remove redundancy} 
 
-{\em In order to explicitly demonstrate the applicability of the piece-wise method for constructing generic ULDM halos developed in \cite{Robles:2018fur} and described in Section \ref{eq:piecewise}, we run an arbitrary merger simulation in PyUltraLight and contrast the resulting density profile with the synthetic piecewise profile. The results are shown in Figure \ref{fig:validity}. Here, 8 arbitrarily positioned solitons with masses selected from a Gaussian distribution centred at 50000 code units merge to form a single halo, which is given sufficient time to relax (asymptotically approaching sero mass loss). Again, a sponge is implemented at the boundary of the simulation volume so that ejected matter does not artificially increase the mass of the inner halo. A piecewise profile is then constructed, ensuring that the central density matches that of the simulation output. The virial mass is then calculated according to \ref{eq:central_dens} and the overall profile constructed. Choosing the transition radius as $3.8r_c$ yields a good fit to the simulation data. This is  shown in Figure \ref{fig:validity}.}
+While Figure \ref{fig:pul} indicates that simulated ULDM halos do indeed approximate the piecewise generic structure of Equation \ref{eq:piecewise}, we further demonstrate the robustness of this approach by simulating two additional soliton mergers in different mass regimes, under differing initial conditions. The results are shown in Figure \ref{fig:validity}. We see that relaxed halos can be modelled effectively using the piecewise approach across a broad mass range and choice of initial conditions. 
 
 \re{Do we want to see a couple of additional plots for different initial implementations? Also, we could possibly show a plot of the initial state. AND if they inhomogeneities are interesting, a plot showing a slice through the centre of the relaxed halo, showing the local density; maybe as a contour plot?}
+\ek{Added in additional plot with alternative initial conditions in Fig \ref{fig:validity}. Also added in contour plot relating to 512 cubed example. Don't think a plot of the initial state would be particularly useful, as it's just a random distribution of a number of solitons, not easy to visualise without a 3D rendering, and I would struggle to see much merit in that}
 
 
-\section{Comparison of ULDM and CDM halos}
+\section{Comparison of ULDM and CDM halos}\label{sec:ULDM_v_CDM}
 
 \begin{figure}
 \begin{tabular}{cc}
@@ -196,14 +219,14 @@ The left panel of Figure \ref{fig:pul} demonstrates the spherically-averaged den
 \end{figure}
 
  
-Using formalism developed here we compare the radial profiles of ULDM halo profiles to NFW profiles. We focus on masses in the range $10^{11}$ and $10^{12} \operatorname{M}_{\odot}$ since these cases showed an apparent worsening of the core-cusp problem in Ref.~\cite{Robles:2018fur}. \re{ this is right?} Figure \ref{fig:profiles} shows comparisons for representative masses; the green lines represent the ULDM density profiles at the extreme ends of the $\operatorname{M}_c = \operatorname{M}_{cp} \pm 50 \% \operatorname{M}_{cp}$ range, where $\operatorname{M}_{cp}$ is the theoretical predicition for the core mass. Thanks to the scaling relations obeyed by the Schr{\"o}dinger-Poisson soliton solution, this mass range corresponds to a range of $ \gamma_p /4 \geq \gamma \leq 9\gamma_p/4$, where $\gamma_p$ is the theoretical prediction of the square root of the dimensionless central density, yielding a large variation in the central density and widely varying predictions for the overall ULDM profiles. Meanwhile  1-$\sigma$ and 2-$\sigma$ ranges for NFW profiles with different concentrations are show as red and blue dots, respectively \cite{Maccio:2008pcd}. 
+Using formalism developed here we compare the radial profiles of ULDM halo profiles to NFW profiles. We focus on masses in the range $10^{11}$ and $10^{12} \operatorname{M}_{\odot}$ since these cases showed an apparent worsening of the core-cusp problem in Ref.~\cite{Robles:2018fur}. \re{ this is right?}\ek{Not sure what you mean. In terms of what they presented, the densities at small radii (with the smallness determined by what they deemed to be astrophysically accessible) were higher than `equivalent' NFWs. So in this sense it is right, but perhaps you mean something else?} Figure \ref{fig:profiles} shows comparisons for representative masses; the green lines represent the ULDM density profiles at the extreme ends of the $\operatorname{M}_c = \operatorname{M}_{cp} \pm 50 \% \operatorname{M}_{cp}$ range, where $\operatorname{M}_{cp}$ is the theoretical predicition for the core mass. Thanks to the scaling relations obeyed by the Schr{\"o}dinger-Poisson soliton solution, this mass range corresponds to a range of $ \gamma_p /4 \geq \gamma \leq 9\gamma_p/4$, where $\gamma_p$ is the theoretical prediction of the square root of the dimensionless central density, yielding a large variation in the central density and widely varying predictions for the overall ULDM profiles. Meanwhile  1-$\sigma$ and 2-$\sigma$ ranges for NFW profiles with different concentrations are show as red and blue dots, respectively \cite{Maccio:2008pcd}. 
 
 Following Ref~\cite{Robles:2018fur}, we plot to a minimum radius of $r/r_{vir} = 10^{-4}$ and for the same choices of $m_{22}$. We note in passing that for any $\operatorname{M}_{vir}$, the NFW halo density at small radii will inevitably exceed that of the ULDM halo, though the threshold for this transition may be arbitrarily small, and not relevant observationally.  From Figure \ref{fig:profiles} we see that for halo masses of $10^{11}\operatorname{M}_{\odot}$ there is a wide range of $M_c$ for which the ULDM profile is less cuspy than its NFW counterpart.  For a halo mass of $10^{12}\operatorname{M}_{\odot}$ and a ULDM particle mass $m_{22}=0.8$ the ULDM profiles are likewise less peaked than the corresponding NFW profile, but at higher particle mass ($m_{22}=2.5$) the  NFW profiles tend to be less peaked than corresponding ULDM profiles at radial distances in  the range $10^{-4}\leq r/r_{vir} \leq 1$.
 
 
-\section{Comparison of velocity distributions to SPARC data}
+\section{Comparison of velocity distributions to SPARC data}\label{sec:velocity}
 
-It is not the dark matter halo density profiles themselves which are directly  through astrophysical observations, rather it is the radial velocity distributions of tracer stars. We convert density profiles to radial velocity distributions \cite{Sofue:2008wt} via 
+It is not the dark matter halo density profiles themselves which are imaged directly through astrophysical observations, rather it is the radial velocity distributions of tracer stars. We convert our density profiles to radial velocity distributions \cite{Sofue:2008wt} via 
 %
 \begin{equation}
     V(r)^2 = \frac{4\pi G}{r}\int_0^r \rho(r')r'^2 dr',
@@ -214,7 +237,8 @@ where
 \end{equation}
 %
 
-\re{intro SPARC in a sentence or two}
+We can then compare the resulting velocity distributions to astrophysical data. In this case we will use the SPARC database. This database comprises 175 late-type galaxies, and uses Spitzer photometry at $3.6\operatorname{\mu m}$ to trace the stellar mass distributions.
+
 The disk and bulge velocities in the SPARC database are given for $\Upsilon = 1 \operatorname{M}_{\odot}/\operatorname{L}_{\odot}$ at $3.6\operatorname{\mu m}$. However, the greatest source of uncertainty in mass modelling is the assumption for the stellar mass-to-light ratio, $\Upsilon_\star$ \cite{Lelli:2016zqa}. As in \cite{Robles:2018fur}, we  assume a constant value of $\Upsilon_\star = 0.2 \operatorname{M}_{\odot}/\operatorname{L}_{\odot}$ at $3.6\operatorname{\mu m}$, noting that  this constitutes a non-trivial source of uncertainty in the results. Moreover, there is significant uncertainty in the SPARC data itself, though the error bars are not plotted in the following graphs for ease of viewing. 
 
 \begin{figure}
@@ -222,18 +246,18 @@ The disk and bulge velocities in the SPARC database are given for $\Upsilon = 1 
 {\includegraphics[scale = 0.65, trim={2.5cm 2.5cm 2.1cm 0.5cm}]{pics/v_11_8_3_paper.eps}} &
 {\includegraphics[scale = 0.65, trim={2.1cm 2.5cm 0cm 0.5cm}]{pics/v_11_25_3_paper.eps}}
 \end{tabular}
-\caption{Theoretical NFW and ULDM velocity profiles for $10^{11}\operatorname{M}_{\odot}$ halos plotted against SPARC data filtered by $V_{max} < 1.2 \operatorname{kms}^{-1}$. Red solid lines represent the extremal ULDM velocity profiles, while  blue dashed and dotted lines represent the 1-$\sigma$ and 2-$\sigma$ NFW bands, respectively. Results are shown for ULDM particle mass $m_{22} = 0.8$ (left) and $m_{22} = 2.5 $ (right). \re{I actually feel like the 2.5 is better than the 0.8, whereas later we argue for 0.1?} }\label{fig:velocity_11}
+\caption{Theoretical NFW and ULDM velocity profiles for $10^{11}\operatorname{M}_{\odot}$ halos plotted against SPARC data filtered by $V_{max} < 1.2 \operatorname{kms}^{-1}$. Red solid lines represent the extremal ULDM velocity profiles, while  blue dashed and dotted lines represent the 1-$\sigma$ and 2-$\sigma$ NFW bands, respectively. Results are shown for ULDM particle mass $m_{22} = 0.8$ (left) and $m_{22} = 2.5 $ (right). \re{I actually feel like the 2.5 is better than the 0.8, whereas later we argue for 0.1?}\ek{I argue for 0.1 with mass $5\times10^{11}\operatorname{M}_{\odot}$, these graphs are for a higher virial mass} }\label{fig:velocity_11}
 \end{figure}
 
 
-The SPARC database contains photometric data for 175 galaxies, with maximum velocities spanning a range of over $200 \operatorname{kms}^{-1}$. For comparison to the theoretical velocity profiles of the $10^{11}\operatorname{M}_{\odot}$ halos, we have chosen only those candidates with maximum velocity $< 1.2\times 10^2 \operatorname{kms}^{-1}$ and our results are shown in Figures \ref{fig:velocity_11} and \ref{fig:velocity_12}. From Figure 2 \re{hard coded number}, we see that for $10^{11}\operatorname{M}_{\odot}$  neither  NFW nor  ULDM profiles for appear to show good agreement with the data. While the core-cusp problem is not necessarily exacerbated in the ULDM case, ULDM profiles which roughly fit the data at low radii fall short at larger radii. This problem is worse at larger values of $\alpha$. That said, the proportion of baryonic matter is largest at the centre, so it is in this region that inaccuracies in the assumptions of the stellar mass to light ratio will be most critical.  For this reason it is difficult to determine with certainty which model, if either, is a better fit to the data.
+The SPARC database contains photometric data for 175 galaxies, with maximum velocities spanning a range of over $200 \operatorname{kms}^{-1}$. For comparison to the theoretical velocity profiles of the $10^{11}\operatorname{M}_{\odot}$ halos, we have chosen only those candidates with maximum velocity $< 1.2\times 10^2 \operatorname{kms}^{-1}$ and our results are shown in Figures \ref{fig:velocity_11} and \ref{fig:velocity_12}. From Figure \ref{fig:velocity_11}, we see that for $10^{11}\operatorname{M}_{\odot}$  neither  NFW nor  ULDM profiles for appear to show good agreement with the data. While the core-cusp problem is not necessarily exacerbated in the ULDM case, ULDM profiles which roughly fit the data at low radii fall short at larger radii. This problem is worse at larger values of $\alpha$. That said, the proportion of baryonic matter is largest at the centre, so it is in this region that inaccuracies in the assumptions of the stellar mass to light ratio will be most critical.  For this reason it is difficult to determine with certainty which model, if either, is a better fit to the data.
 
 While the SPARC database does not contain any cases for which the velocity is significantly below $10^2\operatorname{kms}^{-1}$ at $10 \operatorname{kpc}$, it would appear that the ULDM profiles for the $10^{11}\operatorname{M}_{\odot}$ halos may provide a better fit to data in a lower velocity regime at this radius.  In Figure \ref{fig:velocity_12}, we show the comparison of the theoretical profiles for the $10^{11}\operatorname{M}_{\odot}$ halos with SPARC data satisfying $1.55 \operatorname{kms}^{-1}\leq V_{max}\leq 2.0 \operatorname{kms}^{-1}$.
 
 
 \begin{figure}
 \begin{tabular}{cc}
-{\includegraphics[scale = 0.65, trim={2.5cm 2.5cm 2.1cm 0.5cm}]{pics/velocity.eps}} &
+{\includegraphics[scale = 0.65, trim={2.5cm 2.5cm 2.1cm 0.5cm}]{pics/v_12_8_3_paper.eps}} &
 {\includegraphics[scale = 0.65, trim={2.1cm 2.5cm 0cm 0.5cm}]{pics/v_12_25_3_paper.eps}}
 \end{tabular}
 \caption{Theoretical NFW and ULDM velocity profiles for $10^{12}\operatorname{M}_{\odot}$ halos plotted against SPARC data filtered by $1.55 \operatorname{kms}^{-1}\leq V_{max}\leq 2.0 \operatorname{kms}^{-1}$. Red solid lines represent the extremal ULDM velocity profiles, while  blue dashed and dotted lines represent the 1-$\sigma$ and 2-$\sigma$ NFW bands, respectively. Results are shown for ULDM particle mass $m_{22} = 0.8$ (left) and $m_{22} = 2.5 $ (right).}\label{fig:velocity_12}
@@ -253,7 +277,7 @@ While the ULDM profiles predicted for $10^{11}$ and $10^{12} \operatorname{M}_{\
 \end{figure}
 
 
-\section{Conclusions}
+\section{Conclusions}\label{sec:conclusion}
 
 While the ULDM model has gained popularity as a means by which to resolve the contentious core-cusp problem of CDM, there exist cases in which theoretical ULDM profiles have higher densities than their NFW counterparts at observationally relevant radii in the interior of massive dwarf galaxies. However, given the apparent spread in the predicted ULDM core-halo mass relation \cite{Schive:2014hza}, there exists a significant range of plausible central densities for a halo of any given mass. In some circumstances this can mitigate the apparent core-cusp discrepancy. 
 

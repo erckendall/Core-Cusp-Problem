@@ -123,7 +123,7 @@ and
 \
 
  
-Ref.~\cite{Robles:2018fur} gives the following piecewise parameterization of the generic ULDM profile 
+Ref.~\cite{Robles:2018fur} gives a piecewise parameterization of the generic ULDM profile 
 %
 \begin{equation}\label{eq:piecewise}
      \rho(r)=
@@ -133,12 +133,14 @@ Ref.~\cite{Robles:2018fur} gives the following piecewise parameterization of the
     \end{cases}
 \end{equation}
 %
-where $\rho_{sol}(r)$ is the appropriately scaled density profile of the ground state soliton solution.   \re{to here}
-To construct the ULDM halo profile in accordance with \ref{eq:piecewise}, we must determine the predicted central density, $\rho_c$, of a ULDM halo for a given virial mass, $M_{vir}$.  It has previously been found that there exists a scaling relationship between the mass of the core (and therefore the central density) of a ULDM halo and the overall virial mass of the halo \cite{Schive:2014hza}. There it is argued that the form of a relaxed halo should be determined solely by globally conserved quantities, namely the total energy and mass. This is then converted into an expression relating the core size to the velocity dispersion, and finally to the halo virial mass\footnote{The authors of \cite{Schive:2014hza} suggest the following general expression:
+where $\rho_{sol}(r)$ is the appropriately scaled density profile of the ground state soliton solution. The contribution from the solitionic core and the overall virial mass  obeys a scaling relationship \cite{Schive:2014hza}, which sets the  central density, $\rho_c$, of a ULDM halo with virial mass, $M_{vir}$.  This yields an expression relating the core size to the velocity dispersion, and finally to the halo virial mass.%
+\footnote{The authors of \cite{Schive:2014hza} suggest the following general expression:
 \begin{equation}
     M_c = \alpha \left(\vert E\vert/M\right)^{1/2},
 \end{equation}
-where the core mass $M_c$ is determined by the total energy, $E$, and the total mass of the halo, $M$ where $\alpha$ is a constant of order unity. They then explain that the right hand side of the equation represents the halo velocity dispersion, while the left hand side  represents the inverse core size due to soliton scaling laws. By invoking the virial condition of the spherical collapse model, the authors then  construct the redshift dependent relationship between the solitonic core mass and the halo virial mass for a ULDM halo.}. The core-halo mass relation can also be understood simply as the condition that the virial velocity of the core is equal to the virial velocity of the halo. The theoretical relation of \cite{Schive:2014hza} at $z = 0$ is  
+where the core mass $M_c$ is determined by the total energy, $E$, and the total mass of the halo, $M$ where $\alpha$ is a constant of order unity. They then explain that the right hand side of the equation represents the halo velocity dispersion, while the left hand side  represents the inverse core size due to soliton scaling laws. By invoking the virial condition of the spherical collapse model, the authors then  construct the redshift dependent relationship between the solitonic core mass and the halo virial mass for a ULDM halo.}
+%
+The core-halo mass relation can also be understood simply as the condition that the virial velocity of the core is equal to the virial velocity of the halo. \re{preceding sentence is not quite clear}  At $z=0$ the theoretical relationship is \cite{Schive:2014hza} 
 %
 \begin{equation}\label{eq:central_dens}
     \rho_c = 2.94*10^6 \operatorname{M}_{\odot}\operatorname{kpc}^{-3}\left(\frac{M_{vir}}{10^9 M_{\odot}}\right)^{4/3}m_{22}^{2}
@@ -147,10 +149,10 @@ and
 \begin{equation}
     r_c = 1.6 \operatorname{kpc}\left(\frac{M_{vir}}{10^9 M_{\odot}}\right)^{-1/3}\frac{1}{m_{22}},
 \end{equation}
-where $r_c$ is the radius at which the density drops to half its central value, and $m_{22}$ is defined as $m_{22} \equiv m / 10^{-22} \operatorname{eV}$. Here $m$ is the ULDM particle mass. 
+%
+where $r_c$ is the radius at which the density is half of the central value, and $m_{22}$ is given by $m_{22} \equiv m / 10^{-22} \operatorname{eV}$ where $m$ is the ULDM particle mass. 
 
-
-While this gives us a baseline prediction for the central density of a ULDM halo with a specific virial mass, we expect that there will be a range of acceptable central densities, in analogy with the scatter in the concentration parameter of NFW profiles \cite{Maccio:2008pcd}. Indeed, numerical tests of the predicted scaling relation in \cite{Schive:2014hza} indicate a scatter of up to $\pm 50\%$ from the  predicted value of the core mass, $M_c$, the mass contained within  within $r_c$. Furthermore, it is shown in \cite{Veltmaat:2018dfz} that the core density, when analysed with fine temporal resolution, oscillates in amplitude over more than a factor of two. This is unsurprising given that the central cores are not technically stable soliton solutions, existing not in a vacuum but in an ensemble of turbulent waves. Thus, the core-halo mass relation expressed in \ref{eq:central_dens} should not be taken as a strict constraint, but rather a global statistical trend.
+This gives a baseline profile for ULDM halos, but for a given mass we would expect a range of  central densities,  analogous to the scatter in NFW concentration parameters \cite{Maccio:2008pcd}. Indeed, numerical results \cite{Schive:2014hza} indicate a scatter of up to $\pm 50\%$ in the core mass $M_c$. Furthermore, the cores are not exact soliton solutions of the Schr\"{o}dinger-Poisson equation as they interact with the NFW-like halo, and their amplitude can vary with time by as much as a factor of two \cite{Veltmaat:2018dfz}. \re{"Ampitude" refers to $\psi$ or $\rho$?} Thus, the core-halo mass relation is not a one-to-one rule, but the (presumably) central value of relatively wide and still poorly  characterised distribution. \re{tp here}
 
 The small sample size and limited halo mass range ($ M_{vir} \approx 10^8-10^{11} \operatorname{M}_{\odot}$)  of the data in Ref.~\cite{Schive:2014hza} means it is probably not meaningful to use it to specify a detailed statistical distribution of halos. Indeed, one must be cautious when extrapolating the core-halo mass relation to realistic halos in regions of parameter space which have yet to be explored experimentally. It is difficult to predict, for example, the effect that star formation and feedback will have on the formation of solitonic cores in halos of different masses. Hence, we will here assume a scatter of $\pm 50\%$, noting that future simulations will hopefully lead to improved predictions for this distribution. 
 
